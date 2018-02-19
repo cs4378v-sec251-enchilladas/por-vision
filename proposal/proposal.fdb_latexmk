@@ -1,0 +1,16 @@
+# Fdb version 3
+["pdflatex"] 1519007734 "proposal.tex" "proposal.pdf" "proposal" 1519007734
+  "/etc/texmf/web2c/texmf.cnf" 1517864710 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1248133631 35752 024fb6c41858982481f6968b5fc26508 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/article.cls" 1454284088 20708 39fdf9e2fb65617012fa7382a351f485 ""
+  "/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo" 1454284088 9179 4cd3c5f593e63512893b8ac0123f1bd7 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1503343927 31343 93828589fb0cea665e553ee5a17ad2d4 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1503343927 31343 93828589fb0cea665e553ee5a17ad2d4 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1517868140 127805 5c3c5fac7370b5e0b4000550316abe76 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1517868145 718486 10bee7bb9af8b27c8b7dd009072342ef ""
+  "proposal.aux" 1519007734 8 a94a2480d3289e625eea47cd1b285758 ""
+  "proposal.tex" 1519007733 66 d4e342ecfb0e00d74c23d437d17a52fa ""
+  (generated)
+  "proposal.pdf"
+  "proposal.log"
+  "proposal.aux"
