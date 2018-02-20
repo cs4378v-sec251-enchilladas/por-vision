@@ -1,36 +1,31 @@
-# You want latexmk to always run, because make does not have all the info.
-# Also, include non-file targets in .PHONY so they are run regardless of any
-# file of the given name existing.
-.PHONY: proposal.pdf all clean
+# Simple Makefile for ACM SIGCHI LaTeX template
+# Public domain, 2015 by Florian Echtler
+#
+# To use, copy to top-level LaTeX folder and run 'make'.
 
-# The first rule in a Makefile is the one executed by default ("make"). It
-# should always be the "all" rule, so that "make" and "make all" are identical.
-all: proposal.pdf
+VIEWER=$(shell which xdg-open open | head -n l)
 
-# Custom build rules
+# initial target files
+all: proceedings.pdf
 
-# '$@' is a variable holding the name of the target, and '$<' is a variable
-# holding the (first) dependency of a rule.
-# "raw2tex" and "dat2tex" are just placeholders for whatever custom steps you
-# might have.
+# initial aux file generation
+%.aux: %.tex
+	pdflatex $<
 
-%.tex: %.raw
-	./raw2tex $< > $@
+# bbl file generation (change bib name if required)
+%.bbl: %.aux sample.bib
+	bibtex $<
 
-%.tex: %.dat
-	./dat2tex %< > %@
+# pdf output
+%.pdf: %.tex %.bbl
+	pdflatex $<
+	$(VIEWER) $@ &
 
-# Main latexmk rule
-
-# -pdf tells latexmk to generate PDF directly (instead of DVI).
-# -pdflatex="" tells latexmk to call a specific backend with specific options.
-# -use-make tells latexmk to call make for generating missing files.
-
-# -interaction=nonstopmode keeps the pdflatex backend from stopping at a
-# missing file reference and interactively asking you for an alternative.
-
-proposal.pdf: proposal.tex
-	latexmk -pdf -pdflatex="pdflatex -interaction=nonstopmode" -use-make proposal.tex
+# do not delete intermediate aux/bbl files
+.PRECIOUS: %.aux %.bbl
 
 clean:
-	latexmk -CA
+	-rm *.aux *.log *.bbl *.blg *.out *.synctex.gz
+
+veryclean: clean
+	-rm *.pdf
